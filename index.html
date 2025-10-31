@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ZevraLabs — Bright & Modern</title>
+  <meta name="description" content="ZevraLabs — cinematic front-end studio. Bright, modern and colorful landing page." />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#ffffff;
+      --card:#fcfcff;
+      --muted:#6b7280;
+      --accent1:#7c3aed;
+      --accent2:#06b6d4;
+      --accent3:#f97316;
+      --glass:rgba(255,255,255,0.6);
+      --blur:12px;
+      --radius:16px;
+      --shadow:0 8px 30px rgba(16,24,40,0.08);
+      color-scheme:light;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;
+      background:linear-gradient(180deg,#fbfdff 0%,#ffffff 45%);
+      color:#0f172a;
+      -webkit-font-smoothing:antialiased;
+      overflow-x:hidden;
+      line-height:1.45;
+      padding:32px;
+    }
+
+    .wrap{max-width:1200px;margin:0 auto}
+    header{display:flex;align-items:center;justify-content:space-between;padding:8px 0 28px;}
+    .brand{display:flex;align-items:center;gap:14px;animation:fadeInDown 1s ease;}
+    .logo{
+      width:52px;height:52px;border-radius:12px;display:grid;place-items:center;
+      background:linear-gradient(135deg,var(--accent2),var(--accent1));
+      color:white;font-weight:700;font-family:Poppins,Inter,sans-serif;font-size:20px;box-shadow:var(--shadow);
+      animation:float 5s ease-in-out infinite;
+    }
+    .brand h1{margin:0;font-size:18px;letter-spacing:-0.3px}
+    .brand p{margin:0;font-size:12px;color:var(--muted)}
+    nav{display:flex;gap:12px;align-items:center}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;background:linear-gradient(90deg,var(--accent1),var(--accent2));color:white;font-weight:600;border:0;cursor:pointer;box-shadow:0 6px 18px rgba(124,58,237,0.18);transition:transform .3s ease,box-shadow .3s ease;}
+    .btn:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 10px 25px rgba(124,58,237,0.25);}
+    .btn.ghost{background:transparent;color:var(--accent1);border:1px solid rgba(124,58,237,0.12);box-shadow:none;transition:all .3s;}
+    .btn.ghost:hover{background:rgba(124,58,237,0.08)}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:40px 0;}
+    .hero-left{padding:20px;animation:fadeInUp 1.2s ease;}
+    .kicker{display:inline-block;padding:6px 10px;background:linear-gradient(90deg,rgba(6,182,212,0.12),rgba(124,58,237,0.08));border-radius:999px;color:var(--accent1);font-weight:600;font-size:13px;}
+    h2{font-family:Poppins,Inter,sans-serif;font-weight:700;font-size:40px;margin:18px 0 10px;line-height:1.02;}
+    p.lead{color:var(--muted);font-size:16px;max-width:62%;}
+    .cta-row{display:flex;gap:12px;margin-top:18px;}
+    .secondary{background:transparent;border:1px solid rgba(15,23,42,0.06);padding:10px 14px;border-radius:10px;cursor:pointer;transition:all .3s;}
+    .secondary:hover{background:rgba(6,182,212,0.08)}
+
+    .hero-right{position:relative;animation:fadeInRight 1.2s ease;}
+    .mock-card{background:linear-gradient(180deg,var(--card),#ffffff);border-radius:20px;padding:20px;box-shadow:var(--shadow);backdrop-filter:blur(var(--blur));border:1px solid rgba(15,23,42,0.03);}
+    .mock-art{height:230px;border-radius:12px;background:linear-gradient(135deg,var(--accent2),var(--accent1));position:relative;overflow:hidden;display:grid;place-items:center;color:white;font-weight:700;}
+    .blob{position:absolute;border-radius:999px;filter:blur(36px);opacity:0.9;animation:float 6s ease-in-out infinite;}
+    .blob.a{width:180px;height:180px;left:-40px;top:-40px;background:radial-gradient(circle at 30% 30%,rgba(124,58,237,0.9),rgba(6,182,212,0.6));}
+    .blob.b{width:130px;height:130px;right:-30px;bottom:-20px;background:radial-gradient(circle at 70% 70%,rgba(249,115,22,0.9),rgba(124,58,237,0.5));}
+
+    .stats{display:flex;gap:12px;margin-top:14px;}
+    .stat{background:linear-gradient(180deg,rgba(255,255,255,0.7),rgba(250,250,255,0.7));padding:12px;border-radius:12px;min-width:120px;text-align:center;border:1px solid rgba(15,23,42,0.03);}
+    .stat strong{display:block;font-size:18px;}
+    .stat span{display:block;font-size:12px;color:var(--muted);}
+
+    /* Sections */
+    .section{padding:48px 0;}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+    .card{background:linear-gradient(180deg,white,#fbfbff);border-radius:14px;padding:18px;box-shadow:var(--shadow);border:1px solid rgba(15,23,42,0.03);transition:transform .36s cubic-bezier(.2,.9,.3,1),box-shadow .36s,filter .3s;}
+    .card:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(16,24,40,0.08);filter:brightness(1.05);}
+    .icon{width:52px;height:52px;border-radius:12px;display:grid;place-items:center;font-weight:700;}
+
+    .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+    .project{border-radius:12px;padding:16px;background:linear-gradient(180deg,rgba(124,58,237,0.06),rgba(6,182,212,0.04));min-height:160px;display:flex;flex-direction:column;justify-content:flex-end;transition:transform .3s ease,box-shadow .3s;}
+    .project:hover{transform:translateY(-5px);box-shadow:0 12px 28px rgba(124,58,237,0.12);}
+
+    footer{padding:28px 0;border-top:1px solid rgba(15,23,42,0.04);display:flex;justify-content:space-between;align-items:center;animation:fadeInUp 1.2s ease;}
+
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr;}
+      .hero-right{order:-1}
+      .grid,.projects{grid-template-columns:repeat(2,1fr)}
+      p.lead{max-width:90%}
+    }
+    @media (max-width:520px){
+      body{padding:18px}
+      .grid,.projects{grid-template-columns:1fr}
+      h2{font-size:28px}
+      .logo{width:44px;height:44px;font-size:18px}
+    }
+
+    /* Animations */
+    @keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-10px)}100%{transform:translateY(0)}}
+    @keyframes fadeInUp{0%{opacity:0;transform:translateY(30px);}100%{opacity:1;transform:translateY(0);}}
+    @keyframes fadeInRight{0%{opacity:0;transform:translateX(40px);}100%{opacity:1;transform:translateX(0);}}
+    @keyframes fadeInDown{0%{opacity:0;transform:translateY(-30px);}100%{opacity:1;transform:translateY(0);}}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">Z</div>
+        <div>
+          <h1>ZevraLabs</h1>
+          <p>Bright • Modern • Front-end Studio</p>
+        </div>
+      </div>
+
+      <nav>
+        <button class="btn ghost">Work</button>
+        <button class="btn ghost">Services</button>
+        <button class="btn">Get a Quote</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-left">
+          <div class="kicker">We craft delightful UI</div>
+          <h2>Modern front-end design that feels alive — for brands that want to stand out.</h2>
+          <p class="lead">We build pixel-perfect websites, interactive prototypes, and motion rich interfaces. Fast development, thoughtful design, and delightful microinteractions.</p>
+          <div class="cta-row">
+            <button class="btn">Start a Project</button>
+            <button class="secondary">Explore Templates</button>
+          </div>
+
+          <div class="stats" aria-hidden>
+            <div class="stat"><strong>120+</strong><span>Projects</span></div>
+            <div class="stat"><strong>38</strong><span>Clients</span></div>
+            <div class="stat"><strong>9.8</strong><span>Avg Rating</span></div>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="mock-card">
+            <div class="mock-art">
+              <div class="blob a"></div>
+              <div class="blob b" style="animation-delay:1s"></div>
+              <div style="position:relative;z-index:2;text-align:center;padding:22px">
+                <h3 style="margin:0;font-family:Poppins;font-size:22px">ZevraLabs UI Kit</h3>
+                <p style="margin:8px 0 0;font-size:13px;opacity:0.95">A curated collection of components & templates.</p>
+              </div>
+            </div>
+            <div style="display:flex;gap:12px;margin-top:14px;align-items:center">
+              <div style="flex:1">
+                <div style="height:8px;background:linear-gradient(90deg,var(--accent2),var(--accent1));border-radius:999px"></div>
+                <small style="color:var(--muted)">Preview of components</small>
+              </div>
+              <div style="width:86px;text-align:right">
+                <button class="btn" style="padding:8px 10px;border-radius:10px;font-size:13px">View</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section fade-up">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px">
+          <h3 style="margin:0">Services</h3>
+          <small style="color:var(--muted)">Design, Build & Ship</small>
+        </div>
+
+        <div class="grid">
+          <div class="card"><div style="display:flex;gap:12px;align-items:center">
+            <div class="icon" style="background:linear-gradient(180deg,var(--accent1),var(--accent3));color:white">UI</div>
+            <div><strong>Interface Design</strong><div style="color:var(--muted);font-size:13px;margin-top:6px">Design systems, components, and prototypes.</div></div></div></div>
+
+          <div class="card"><div style="display:flex;gap:12px;align-items:center">
+            <div class="icon" style="background:linear-gradient(180deg,var(--accent2),var(--accent1));color:white">FE</div>
+            <div><strong>Front-end Development</strong><div style="color:var(--muted);font-size:13px;margin-top:6px">Performance, accessibility and modern JS stacks.</div></div></div></div>
+
+          <div class="card"><div style="display:flex;gap:12px;align-items:center">
+            <div class="icon" style="background:linear-gradient(180deg,var(--accent3),#f43f5e);color:white">BR</div>
+            <div><strong>Brand & Motion</strong><div style="color:var(--muted);font-size:13px;margin-top:6px">Brand expressions, animations and media assets.</div></div></div></div>
+        </div>
+      </section>
+
+      <section class="section fade-up">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px">
+          <h3 style="margin:0">Selected Projects</h3>
+          <small style="color:var(--muted)">Interactive & experimental</small>
+        </div>
+
+        <div class="projects">
+          <div class="project"><div style="font-weight:700">Aether — Product Site</div><small style="color:var(--muted)">Landing, e-commerce interactions</small></div>
+          <div class="project"><div style="font-weight:700">Nocturne Studio</div><small style="color:var(--muted)">Music site + visualizer</small></div>
+          <div class="project"><div style="font-weight:700">Pulse App UI</div><small style="color:var(--muted)">Design system & components</small></div>
+        </div>
+      </section>
+
+      <section class="section fade-up">
+        <div style="display:grid;grid-template-columns:1fr 340px;gap:20px;align-items:start">
+          <div>
+            <h3>Let's make something</h3>
+            <p style="color:var(--muted);max-width:70%">Tell us about your project — timeline, scope, and what matters most. We’ll reply with a proposal and suggested first steps.</p>
+
+            <form style="margin-top:14px;display:grid;gap:10px;max-width:520px">
+              <input placeholder="Your name" style="padding:12px;border-radius:10px;border:1px solid rgba(15,23,42,0.06)"/>
+              <input placeholder="Email" style="padding:12px;border-radius:10px;border:1px solid rgba(15,23,42,0.06)"/>
+              <textarea placeholder="Short project brief" rows="4" style="padding:12px;border-radius:10px;border:1px solid rgba(15,23,42,0.06)"></textarea>
+              <div style="display:flex;gap:8px"><button class="btn" type="button">Send</button><button class="secondary" type="button">Chat</button></div>
+            </form>
+          </div>
+
+          <aside style="background:linear-gradient(180deg,rgba(124,58,237,0.05),rgba(6,182,212,0.03));padding:18px;border-radius:12px;box-shadow:var(--shadow)">
+            <h4 style="margin:0 0 8px">Why ZevraLabs?</h4>
+            <ul style="margin:0;padding-left:18px;color:var(--muted)">
+              <li>Design systems built for scale</li>
+              <li>Performance-first front-end</li>
+              <li>Beautiful microinteractions</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div style="display:flex;gap:12px;align-items:center">
+        <div class="logo" style="width:38px;height:38px">Z</div>
+        <div style="font-size:13px">© <strong>ZevraLabs</strong> 2025</div>
+      </div>
+      <div style="color:var(--muted);font-size:13px">Built with care • <span style="font-weight:600">React-ready</span> components</div>
+    </footer>
+  </div>
+
+  <script>
+    // Button bounce
+    document.querySelectorAll('.btn').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        btn.animate([{transform:'translateY(0)'},{transform:'translateY(-4px)'},{transform:'translateY(0)'}],{duration:240,easing:'cubic-bezier(.2,.9,.3,1)'});
+      });
+    });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){e.target.style.animation='fadeInUp .8s ease forwards';}
+      });
+    },{threshold:.2});
+    document.querySelectorAll('.fade-up').forEach(el=>{
+      el.style.opacity=0;
+      observer.observe(el);
+    });
+
+    // Page glow
+    window.addEventListener('load',()=>{
+      document.body.animate([{filter:'brightness(.9)'},{filter:'brightness(1)'}],{duration:900,fill:'forwards'});
+    });
+  </script>
+</body>
+</html>
