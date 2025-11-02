@@ -14,7 +14,7 @@
     }
     @font-face {
       font-family: 'Promo';
-      src: url('/fonts/prometheanbold.ttf') format('truetype');
+      src: url('prometheanbold.ttf') format('truetype');
     }
 
     *{box-sizing:border-box}
