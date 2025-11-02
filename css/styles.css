@@ -14,7 +14,7 @@
     }
     @font-face {
       font-family: 'Promo';
-      src: url('prometheanbold.ttf') format('truetype');
+      src: url('../prometheanbold.ttf') format('truetype');
     }
 
     *{box-sizing:border-box}
@@ -447,4 +447,5 @@
     @keyframes fadeInUp{0%{opacity:0;transform:translateY(30px);}100%{opacity:1;transform:translateY(0);}}
     @keyframes fadeInRight{0%{opacity:0;transform:translateX(40px);}100%{opacity:1;transform:translateX(0);}}
     @keyframes fadeInDown{0%{opacity:0;transform:translateY(-30px);}100%{opacity:1;transform:translateY(0);}}
+
   
